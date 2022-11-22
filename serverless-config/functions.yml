@@ -1,0 +1,107 @@
+#Done
+addTodoCollection:
+  handler: src/todo/addTodo.addTodo
+  events:
+    - http:
+        path: todo-collection/
+        method: POST
+        cors: true
+        # headers:
+        #   - Content-Type
+        #   - Authorization
+        #   - X-Api-Key
+        #   - _X_AMZN_TRACE_ID
+        #   - trackingId
+      # private: true
+      # authorizer:
+      #   arn: arn:aws:cognito-idp:${opt:region, self:provider.region}:${self:provider.environment.ACCOUNT_ID}:userpool/${self:provider.environment.pool_id}
+      #   scopes:
+      #     - ${self:provider.environment.COG_SCOPE_API_USR2}
+
+# #Done
+deleteTodoCollection:
+  handler: src/todo/deleteTodo.deleteById
+  events:
+    - http:
+        path: todo-collection/{id}
+        method: DELETE
+        cors: true
+#         # headers:
+#         #   - Content-Type
+#         #   - Authorization
+#         #   - X-Api-Key
+#         #   - _X_AMZN_TRACE_ID
+#         #   - trackingId
+#         # private: true
+#         authorizer:
+#           arn: arn:aws:cognito-idp:${opt:region, self:provider.region}:${self:provider.environment.ACCOUNT_ID}:userpool/${self:provider.environment.pool_id}
+#           scopes:
+#             - ${self:provider.environment.COG_SCOPE_API_USR2}
+#         request:
+#           parameters:
+#             paths: id:true
+            
+# #Done
+updateTodoCollection:
+  handler: src/todo/updateTodo.updateById
+  events:
+    - http:
+        path: todo-collection/{id}
+        method: PUT
+        cors: true
+#         # headers:
+#         #   - Content-Type
+#         #   - Authorization
+#         #   - X-Api-Key
+#         #   - _X_AMZN_TRACE_ID
+#         #   - trackingId
+#         # private: true
+#         authorizer:
+#           arn: arn:aws:cognito-idp:${opt:region, self:provider.region}:${self:provider.environment.ACCOUNT_ID}:userpool/${self:provider.environment.pool_id}
+#           scopes:
+#             - ${self:provider.environment.COG_SCOPE_API_USR2}
+
+#Done
+getAllTodoCollection:
+  handler: src/todo/getTodo.getAll
+  events:
+    - http:
+        path: todo-collection/
+        method: GET
+        cors: true
+#         # headers:
+#         #   - Content-Type
+#         #   - Authorization
+#         #   - X-Api-Key
+#         #   - _X_AMZN_TRACE_ID
+#         #   - trackingId
+#         # private: true
+#         authorizer:
+#           arn: arn:aws:cognito-idp:${opt:region, self:provider.region}:${self:provider.environment.ACCOUNT_ID}:userpool/${self:provider.environment.pool_id}
+#           scopes:
+#             - ${self:provider.environment.COG_SCOPE_API_USR2}
+  
+
+# #Done
+getTodoCollectionById:
+  handler: src/todo/getTodo.getById
+  events:
+    - http:
+        path: todo-collection/{id}
+        method: GET
+        cors: true
+        # headers:
+        #   - Content-Type
+        #   - Authorization
+        #   - X-Api-Key
+        #   - _X_AMZN_TRACE_ID
+        #   - trackingId
+        # private: true
+        # authorizer:
+        #   arn: arn:aws:cognito-idp:${opt:region, self:provider.region}:${self:provider.environment.ACCOUNT_ID}:userpool/${self:provider.environment.pool_id}
+        #   scopes:
+        #     - ${self:provider.environment.COG_SCOPE_API_USR2}
+        request:
+          parameters:
+            paths: id:true
+           
