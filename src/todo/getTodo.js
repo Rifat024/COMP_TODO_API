@@ -77,12 +77,15 @@ export const getAll = async () => {
 
     const scanResults = [];
    
-    do{
+    // do{
         const items =  await getAllRecord(params);
-        items.Items.forEach((item)=>scanResults.push(item));
-       // items.Items.forEach((item) => scanResults.push(item));
-        params.ExclusiveStartKey  = items.LastEvaluatedKey;
-    }while(typeof items.LastEvaluatedKey !== "undefined");
+    //     items.Items.forEach((item)=>scanResults.push(item));
+         console.log(items.body.Items,Object.keys(items),'items');
+         scanResults.push(...items.body.Items);
+        //  scanResults=items.body.Items;
+    //    // items.Items.forEach((item) => scanResults.push(item));
+    //     params.ExclusiveStartKey  = items.LastEvaluatedKey;
+    // }while(typeof items.LastEvaluatedKey !== "undefined");
     
     return apiResponse(scanResults);
 

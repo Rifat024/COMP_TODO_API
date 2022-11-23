@@ -47841,12 +47841,15 @@ const getAll = async () => {
 
     const scanResults = [];
    
-    do{
+    // do{
         const items =  await (0,_commons_utils_dbMgmt__WEBPACK_IMPORTED_MODULE_2__.getAllRecord)(params);
-        items.Items.forEach((item)=>scanResults.push(item));
-       // items.Items.forEach((item) => scanResults.push(item));
-        params.ExclusiveStartKey  = items.LastEvaluatedKey;
-    }while(typeof items.LastEvaluatedKey !== "undefined");
+    //     items.Items.forEach((item)=>scanResults.push(item));
+         console.log(items.body.Items,Object.keys(items),'items');
+         scanResults.push(...items.body.Items);
+        //  scanResults=items.body.Items;
+    //    // items.Items.forEach((item) => scanResults.push(item));
+    //     params.ExclusiveStartKey  = items.LastEvaluatedKey;
+    // }while(typeof items.LastEvaluatedKey !== "undefined");
     
     return (0,_commons_http_helpers_api_response__WEBPACK_IMPORTED_MODULE_1__.apiResponse)(scanResults);
 
