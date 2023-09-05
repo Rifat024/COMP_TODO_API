@@ -33,11 +33,11 @@ custom:
     #   seed: true
     #   convertEmptyValues: true
     # UNCOMMENT ENDS FOR LOCAL
-  customDomain:
-    domainName: ${env:DOMAIN_NAME}
-    basePath: ${env:DOMAIN_NAME_PATH}
-    stage: ${self:provider.stage}
-    createRoute53Record: true
+  # customDomain:
+  #   domainName: ${env:DOMAIN_NAME}
+  #   basePath: ${env:DOMAIN_NAME_PATH}
+  #   stage: ${self:provider.stage}
+  #   createRoute53Record: true
 provider:
   name: aws
   stage: ${opt:stage, 'dev'}
