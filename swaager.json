@@ -1,0 +1,3019 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "api Jira APIs",
+    "version": "1"
+  },
+  "paths": {
+    "/jira/project/{id}/required-fields": {
+      "get": {
+        "summary": "getRequiredFieldsByProjectKey",
+        "description": "",
+        "operationId": "getRequiredFieldsByProjectKey.get.jira/project/{id}/required-fields",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraRequiredFieldsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/projects": {
+      "get": {
+        "summary": "getProjectListFromJira",
+        "description": "",
+        "operationId": "getProjectListFromJira.get.jira/projects",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/application/{id}/users": {
+      "get": {
+        "summary": "getUserListFromJira",
+        "description": "",
+        "operationId": "getUserListFromJira.get.jira/application/{id}/users",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data Get successfully",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira-project/status-labels": {
+      "post": {
+        "summary": "getStatusAndLabelsByProject",
+        "description": "",
+        "operationId": "getStatusAndLabelsByProject.post.jira-project/status-labels",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/getStatusAndLabelsReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data Get successfully",
+            "schema": {
+              "$ref": "#/definitions/getStatusAndLabelsRes"
+            }
+          }
+        }
+      }
+    },
+    "/jira/project/{id}": {
+      "put": {
+        "summary": "updateJiraProjectFromJira",
+        "description": "",
+        "operationId": "updateJiraProjectFromJira.put.jira/project/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/projects/application/{id}": {
+      "get": {
+        "summary": "getJiraProjectByApplication",
+        "description": "",
+        "operationId": "getJiraProjectByApplication.get.projects/application/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/webhook/issues": {
+      "post": {
+        "summary": "updateJiraProjectFromJiraWebhook",
+        "description": "",
+        "operationId": "updateJiraProjectFromJiraWebhook.post.jira/webhook/issues",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/task": {
+      "post": {
+        "summary": "createJiraTask",
+        "description": "",
+        "operationId": "createJiraTask.post.jira/task",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/createTaskRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/tasks": {
+      "post": {
+        "summary": "createJiraTasks",
+        "description": "",
+        "operationId": "createJiraTasks.post.jira/tasks",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/createTasksRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/task/{id}": {
+      "patch": {
+        "summary": "updateJiraTask",
+        "description": "",
+        "operationId": "updateJiraTask.patch.jira/task/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/createTaskRequest"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "deleteJiraTask",
+        "description": "",
+        "operationId": "deleteJiraTask.delete.jira/task/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "taskFor",
+            "type": "string",
+            "description": "task for= STUDIO | BUG_TRACK",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "getTaskDetails",
+        "description": "",
+        "operationId": "getTaskDetails.get.jira/task/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/project/issue/{id}/tasks": {
+      "get": {
+        "summary": "getTasksByIssue",
+        "description": "It will get data from tasks",
+        "operationId": "getTasksByIssue.get.project/issue/{id}/tasks",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "size",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "searchName",
+            "type": "string",
+            "description": "Search by Key or Summary",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "statuses",
+            "type": "string",
+            "description": "Search by Key or statuses",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/sub-task": {
+      "post": {
+        "summary": "createJiraSubTask",
+        "description": "",
+        "operationId": "createJiraSubTask.post.jira/sub-task",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/createSubTaskRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/sub-task/{key}": {
+      "patch": {
+        "summary": "updateJiraSubTask",
+        "description": "",
+        "operationId": "updateJiraSubTask.patch.jira/sub-task/{key}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/createSubTaskRequest"
+            }
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "deleteJiraSubTask",
+        "description": "",
+        "operationId": "deleteJiraSubTask.delete.jira/sub-task/{key}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "getIssueDetailsFromJira",
+        "description": "",
+        "operationId": "getIssueDetailsFromJira.get.jira/sub-task/{key}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/webhook": {
+      "post": {
+        "summary": "createJiraWebhook",
+        "description": "",
+        "operationId": "createJiraWebhook.post.jira/webhook",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/createJiraWebhook"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/project/issues": {
+      "post": {
+        "summary": "getIssueDetailsByApplication",
+        "description": "It will get data jira story data",
+        "operationId": "getIssueDetailsByApplication.post.project/issues",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/getJiraIssuesReq"
+            }
+          },
+          {
+            "in": "query",
+            "name": "size",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "searchName",
+            "type": "string",
+            "description": "Search by Key or Summary",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/issue/{id}/sync": {
+      "put": {
+        "summary": "syncJiraIssueFromJira",
+        "description": "",
+        "operationId": "syncJiraIssueFromJira.put.jira/issue/{id}/sync",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/updateSelectiveDataForIssueReq"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/issue/{id}/dependencies": {
+      "put": {
+        "summary": "createDependencyInIssue",
+        "description": "",
+        "operationId": "createDependencyInIssue.put.jira/issue/{id}/dependencies",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/createDependencyReq"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/application/{id}/dependencies": {
+      "get": {
+        "summary": "getDependencyByApplication",
+        "description": "",
+        "operationId": "getDependencyByApplication.get.application/{id}/dependencies",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "issue",
+            "type": "string",
+            "description": "Search by story _id",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/issue/{id}": {
+      "patch": {
+        "summary": "updateJiraIssue",
+        "description": "",
+        "operationId": "updateJiraIssue.patch.jira/issue/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/updateIssueRequest"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "getIssueDetails",
+        "description": "",
+        "operationId": "getIssueDetails.get.jira/issue/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/issue/{id}/compare": {
+      "get": {
+        "summary": "getIssueDetailsWithComparison",
+        "description": "",
+        "operationId": "getIssueDetailsWithComparison.get.jira/issue/{id}/compare",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/{key}/transitions": {
+      "get": {
+        "summary": "getIssueTransitions",
+        "description": "",
+        "operationId": "getIssueTransitions.get.jira/{key}/transitions",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira/comment": {
+      "post": {
+        "summary": "createJiraComment",
+        "description": "",
+        "operationId": "createJiraComment.post.jira/comment",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/createCommentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/jiraProjectResponse"
+            }
+          }
+        }
+      }
+    },
+    "/release-note": {
+      "post": {
+        "summary": "createReleaseNote",
+        "description": "",
+        "operationId": "createReleaseNote.post.release-note",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/createReleaseNoteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/getReleaseNoteResponse"
+            }
+          }
+        }
+      }
+    },
+    "/release-note/{id}": {
+      "patch": {
+        "summary": "updateReleaseNote",
+        "description": "",
+        "operationId": "updateReleaseNote.patch.release-note/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/createReleaseNoteRequest"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/getReleaseNoteResponse"
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "getReleaseNoteDetails",
+        "description": "",
+        "operationId": "getReleaseNoteDetails.get.release-note/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/getReleaseNoteResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "deleteReleaseNote",
+        "description": "",
+        "operationId": "deleteReleaseNote.delete.release-note/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/getReleaseNoteResponse"
+            }
+          }
+        }
+      }
+    },
+    "/release-note/application/{id}": {
+      "get": {
+        "summary": "getReleaseNoteByApplication",
+        "description": "",
+        "operationId": "getReleaseNoteByApplication.get.release-note/application/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/getReleaseNoteListResponse"
+            }
+          }
+        }
+      }
+    },
+    "/release-note/issue/{id}": {
+      "get": {
+        "summary": "getReleaseNoteByIssue",
+        "description": "",
+        "operationId": "getReleaseNoteByIssue.get.release-note/issue/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/getReleaseNoteListResponse"
+            }
+          }
+        }
+      }
+    },
+    "/jira-datas": {
+      "get": {
+        "summary": "getJiraDatas",
+        "description": "",
+        "operationId": "getJiraDatas.get.jira-datas",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/getJiraDatasResponse"
+            }
+          }
+        }
+      }
+    },
+    "/project-config": {
+      "post": {
+        "summary": "addJiraProjectConfig",
+        "description": "",
+        "operationId": "addJiraProjectConfig.post.project-config",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/createJiraProjectConfigReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data Get successfully",
+            "schema": {
+              "$ref": "#/definitions/getJiraProjectConfigRes"
+            }
+          }
+        }
+      }
+    },
+    "/project-configs": {
+      "get": {
+        "summary": "getJiraProjectConfigs",
+        "description": "",
+        "operationId": "getJiraProjectConfigs.get.project-configs",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Data Get successfully",
+            "schema": {
+              "$ref": "#/definitions/getJiraProjectConfigListRes"
+            }
+          }
+        }
+      }
+    },
+    "/project-config/{id}": {
+      "get": {
+        "summary": "getJiraProjectConfigDetails",
+        "description": "",
+        "operationId": "getJiraProjectConfigDetails.get.project-config/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data Get successfully",
+            "schema": {
+              "$ref": "#/definitions/getJiraProjectConfigRes"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "jiraProjectResponse": {
+      "additionalProperties": false,
+      "title": "jiraProjectResponse",
+      "type": "object"
+    },
+    "getReleaseNoteResponse": {
+      "properties": {
+        "jiraIssue": {
+          "title": "getReleaseNoteResponse.jiraIssue",
+          "type": "string"
+        },
+        "data": {
+          "title": "getReleaseNoteResponse.data",
+          "type": "object"
+        },
+        "application": {
+          "title": "getReleaseNoteResponse.application",
+          "type": "string"
+        },
+        "_id": {
+          "title": "getReleaseNoteResponse._id",
+          "type": "string"
+        },
+        "createdAt": {
+          "title": "getReleaseNoteResponse.createdAt",
+          "type": "string"
+        },
+        "updatedAt": {
+          "title": "getReleaseNoteResponse.updatedAt",
+          "type": "string"
+        }
+      },
+      "required": [
+        "jiraIssue",
+        "data",
+        "application",
+        "_id",
+        "createdAt",
+        "updatedAt"
+      ],
+      "additionalProperties": false,
+      "title": "getReleaseNoteResponse",
+      "type": "object"
+    },
+    "getReleaseNoteListResponse": {
+      "properties": {
+        "total": {
+          "title": "getReleaseNoteListResponse.total",
+          "type": "number"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/getReleaseNoteResponse"
+          },
+          "title": "getReleaseNoteListResponse.items",
+          "type": "array"
+        }
+      },
+      "required": [
+        "total",
+        "items"
+      ],
+      "additionalProperties": false,
+      "title": "getReleaseNoteListResponse",
+      "type": "object"
+    },
+    "getStatusAndLabelsRes": {
+      "properties": {
+        "labels": {
+          "items": {
+            "type": "string"
+          },
+          "title": "getStatusAndLabelsRes.labels",
+          "type": "array"
+        },
+        "statuses": {
+          "items": {
+            "type": "string"
+          },
+          "title": "getStatusAndLabelsRes.statuses",
+          "type": "array"
+        }
+      },
+      "required": [
+        "labels",
+        "statuses"
+      ],
+      "additionalProperties": false,
+      "title": "getStatusAndLabelsRes",
+      "type": "object"
+    },
+    "getJiraProjectConfigRes": {
+      "properties": {
+        "_id": {
+          "title": "getJiraProjectConfigRes._id",
+          "type": "string"
+        },
+        "companyId": {
+          "title": "getJiraProjectConfigRes.companyId",
+          "type": "string"
+        },
+        "createdBy": {
+          "properties": {
+            "_id": {
+              "title": "getJiraProjectConfigRes.createdBy._id",
+              "type": "string"
+            },
+            "userId": {
+              "title": "getJiraProjectConfigRes.createdBy.userId",
+              "type": "string"
+            },
+            "email": {
+              "title": "getJiraProjectConfigRes.createdBy.email",
+              "type": "string"
+            },
+            "fullName": {
+              "title": "getJiraProjectConfigRes.createdBy.fullName",
+              "type": "string"
+            }
+          },
+          "required": [
+            "_id",
+            "userId",
+            "email",
+            "fullName"
+          ],
+          "additionalProperties": false,
+          "title": "getJiraProjectConfigRes.createdBy",
+          "type": "object"
+        },
+        "expiryDate": {
+          "title": "getJiraProjectConfigRes.expiryDate",
+          "type": "string"
+        },
+        "key": {
+          "title": "getJiraProjectConfigRes.key",
+          "type": "string"
+        },
+        "name": {
+          "title": "getJiraProjectConfigRes.name",
+          "type": "string"
+        },
+        "projectId": {
+          "title": "getJiraProjectConfigRes.projectId",
+          "type": "string"
+        },
+        "allocatedUsers": {
+          "items": {
+            "properties": {
+              "_id": {
+                "title": "_id",
+                "type": "string"
+              },
+              "userId": {
+                "title": "userId",
+                "type": "string"
+              },
+              "email": {
+                "title": "email",
+                "type": "string"
+              },
+              "fullName": {
+                "title": "fullName",
+                "type": "string"
+              }
+            },
+            "required": [
+              "_id",
+              "userId",
+              "email",
+              "fullName"
+            ],
+            "additionalProperties": false,
+            "type": "object"
+          },
+          "title": "getJiraProjectConfigRes.allocatedUsers",
+          "type": "array"
+        },
+        "allocatedUserCount": {
+          "title": "getJiraProjectConfigRes.allocatedUserCount",
+          "type": "number"
+        },
+        "__v": {
+          "title": "getJiraProjectConfigRes.__v",
+          "type": "number"
+        },
+        "createdAt": {
+          "title": "getJiraProjectConfigRes.createdAt",
+          "type": "string"
+        },
+        "updatedAt": {
+          "title": "getJiraProjectConfigRes.updatedAt",
+          "type": "string"
+        }
+      },
+      "required": [
+        "_id",
+        "companyId",
+        "createdBy",
+        "expiryDate",
+        "key",
+        "name",
+        "projectId",
+        "allocatedUsers",
+        "allocatedUserCount",
+        "__v",
+        "createdAt",
+        "updatedAt"
+      ],
+      "additionalProperties": false,
+      "title": "getJiraProjectConfigRes",
+      "type": "object"
+    },
+    "getJiraProjectConfigListRes": {
+      "properties": {
+        "total": {
+          "title": "getJiraProjectConfigListRes.total",
+          "type": "number"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/getJiraProjectConfigRes"
+          },
+          "title": "getJiraProjectConfigListRes.items",
+          "type": "array"
+        }
+      },
+      "required": [
+        "total",
+        "items"
+      ],
+      "additionalProperties": false,
+      "title": "getJiraProjectConfigListRes",
+      "type": "object"
+    },
+    "createJiraProjectFromJiraReq": {
+      "properties": {
+        "keys": {
+          "items": {
+            "type": "string"
+          },
+          "title": "createJiraProjectFromJiraReq.keys",
+          "type": "array"
+        },
+        "application": {
+          "title": "createJiraProjectFromJiraReq.application",
+          "type": "string"
+        }
+      },
+      "required": [
+        "keys",
+        "application"
+      ],
+      "additionalProperties": false,
+      "title": "createJiraProjectFromJiraReq",
+      "type": "object"
+    },
+    "getJiraProjectsReq": {
+      "properties": {
+        "idList": {
+          "items": {
+            "type": "string"
+          },
+          "title": "getJiraProjectsReq.idList",
+          "type": "array"
+        }
+      },
+      "required": [
+        "idList"
+      ],
+      "additionalProperties": false,
+      "title": "getJiraProjectsReq",
+      "type": "object"
+    },
+    "createJiraWebhook": {
+      "properties": {
+        "key": {
+          "title": "createJiraWebhook.key",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "additionalProperties": false,
+      "title": "createJiraWebhook",
+      "type": "object"
+    },
+    "getJiraIssuesReq": {
+      "properties": {
+        "application": {
+          "title": "getJiraIssuesReq.application",
+          "type": "string"
+        },
+        "label": {
+          "items": {
+            "type": "string"
+          },
+          "title": "getJiraIssuesReq.label",
+          "type": "array"
+        },
+        "status": {
+          "items": {
+            "type": "string"
+          },
+          "title": "getJiraIssuesReq.status",
+          "type": "array"
+        },
+        "owner": {
+          "items": {
+            "type": "string"
+          },
+          "title": "getJiraIssuesReq.owner",
+          "type": "array"
+        },
+        "assignee": {
+          "items": {
+            "type": "string"
+          },
+          "title": "getJiraIssuesReq.assignee",
+          "type": "array"
+        }
+      },
+      "required": [
+        "application",
+        "label",
+        "status",
+        "owner",
+        "assignee"
+      ],
+      "additionalProperties": false,
+      "title": "getJiraIssuesReq",
+      "type": "object"
+    },
+    "updateIssueRequest": {
+      "properties": {
+        "techDesignCreated": {
+          "title": "updateIssueRequest.techDesignCreated",
+          "type": "boolean"
+        },
+        "codeCreated": {
+          "title": "updateIssueRequest.codeCreated",
+          "type": "boolean"
+        },
+        "threadId": {
+          "title": "updateIssueRequest.threadId",
+          "type": "string"
+        },
+        "haveTestCase": {
+          "title": "updateIssueRequest.haveTestCase",
+          "type": "boolean"
+        },
+        "fields": {
+          "properties": {
+            "project": {
+              "properties": {
+                "key": {
+                  "title": "updateIssueRequest.fields.project.key",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key"
+              ],
+              "additionalProperties": false,
+              "title": "updateIssueRequest.fields.project",
+              "type": "object"
+            },
+            "summary": {
+              "title": "updateIssueRequest.fields.summary",
+              "type": "string"
+            },
+            "description": {
+              "properties": {
+                "type": {
+                  "title": "updateIssueRequest.fields.description.type",
+                  "type": "string"
+                },
+                "version": {
+                  "title": "updateIssueRequest.fields.description.version",
+                  "type": "number"
+                },
+                "content": {
+                  "items": {
+                    "properties": {
+                      "type": {
+                        "title": "type",
+                        "type": "string"
+                      },
+                      "content": {
+                        "items": [
+                          {
+                            "properties": {
+                              "type": {
+                                "title": "content.0.type",
+                                "type": "string"
+                              },
+                              "text": {
+                                "title": "content.0.text",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "text"
+                            ],
+                            "additionalProperties": false,
+                            "title": "content.0",
+                            "type": "object"
+                          }
+                        ],
+                        "additionalItems": false,
+                        "minItems": 1,
+                        "title": "content",
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "content"
+                    ],
+                    "additionalProperties": false,
+                    "type": "object"
+                  },
+                  "title": "updateIssueRequest.fields.description.content",
+                  "type": "array"
+                }
+              },
+              "required": [
+                "type",
+                "version",
+                "content"
+              ],
+              "additionalProperties": false,
+              "title": "updateIssueRequest.fields.description",
+              "type": "object"
+            },
+            "issuetype": {
+              "properties": {
+                "name": {
+                  "title": "updateIssueRequest.fields.issuetype.name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false,
+              "title": "updateIssueRequest.fields.issuetype",
+              "type": "object"
+            },
+            "priority": {
+              "properties": {
+                "name": {
+                  "title": "updateIssueRequest.fields.priority.name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false,
+              "title": "updateIssueRequest.fields.priority",
+              "type": "object"
+            },
+            "labels": {
+              "items": {
+                "type": "string"
+              },
+              "title": "updateIssueRequest.fields.labels",
+              "type": "array"
+            },
+            "assignee": {
+              "properties": {
+                "name": {
+                  "title": "updateIssueRequest.fields.assignee.name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false,
+              "title": "updateIssueRequest.fields.assignee",
+              "type": "object"
+            },
+            "reporter": {
+              "properties": {
+                "name": {
+                  "title": "updateIssueRequest.fields.reporter.name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false,
+              "title": "updateIssueRequest.fields.reporter",
+              "type": "object"
+            },
+            "duedate": {
+              "title": "updateIssueRequest.fields.duedate",
+              "type": "string"
+            },
+            "customfield_10026": {
+              "title": "updateIssueRequest.fields.customfield_10026",
+              "type": "string"
+            },
+            "customfield_10027": {
+              "title": "updateIssueRequest.fields.customfield_10027",
+              "type": "string"
+            },
+            "customfield_10028": {
+              "title": "updateIssueRequest.fields.customfield_10028",
+              "type": "string"
+            },
+            "status": {
+              "properties": {
+                "name": {
+                  "title": "updateIssueRequest.fields.status.name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false,
+              "title": "updateIssueRequest.fields.status",
+              "type": "object"
+            },
+            "tags": {
+              "items": {
+                "type": "string"
+              },
+              "title": "updateIssueRequest.fields.tags",
+              "type": "array"
+            },
+            "attachments": {
+              "items": {
+                "type": "string"
+              },
+              "title": "updateIssueRequest.fields.attachments",
+              "type": "array"
+            },
+            "links": {
+              "items": {
+                "type": "string"
+              },
+              "title": "updateIssueRequest.fields.links",
+              "type": "array"
+            }
+          },
+          "required": [
+            "project",
+            "summary",
+            "description",
+            "issuetype",
+            "priority",
+            "labels",
+            "assignee",
+            "reporter",
+            "duedate",
+            "customfield_10026",
+            "customfield_10027",
+            "customfield_10028",
+            "status",
+            "tags",
+            "attachments",
+            "links"
+          ],
+          "additionalProperties": false,
+          "title": "updateIssueRequest.fields",
+          "type": "object"
+        }
+      },
+      "required": [
+        "techDesignCreated",
+        "codeCreated",
+        "threadId",
+        "haveTestCase",
+        "fields"
+      ],
+      "additionalProperties": false,
+      "title": "updateIssueRequest",
+      "type": "object"
+    },
+    "createTaskRequest": {
+      "properties": {
+        "fields": {
+          "properties": {
+            "project": {
+              "properties": {
+                "key": {
+                  "title": "createTaskRequest.fields.project.key",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key"
+              ],
+              "additionalProperties": false,
+              "title": "createTaskRequest.fields.project",
+              "type": "object"
+            },
+            "summary": {
+              "title": "createTaskRequest.fields.summary",
+              "type": "string"
+            },
+            "description": {
+              "properties": {
+                "type": {
+                  "title": "createTaskRequest.fields.description.type",
+                  "type": "string"
+                },
+                "version": {
+                  "title": "createTaskRequest.fields.description.version",
+                  "type": "number"
+                },
+                "content": {
+                  "items": {
+                    "properties": {
+                      "type": {
+                        "title": "type",
+                        "type": "string"
+                      },
+                      "content": {
+                        "items": [
+                          {
+                            "properties": {
+                              "type": {
+                                "title": "content.0.type",
+                                "type": "string"
+                              },
+                              "text": {
+                                "title": "content.0.text",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "text"
+                            ],
+                            "additionalProperties": false,
+                            "title": "content.0",
+                            "type": "object"
+                          }
+                        ],
+                        "additionalItems": false,
+                        "minItems": 1,
+                        "title": "content",
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "content"
+                    ],
+                    "additionalProperties": false,
+                    "type": "object"
+                  },
+                  "title": "createTaskRequest.fields.description.content",
+                  "type": "array"
+                }
+              },
+              "required": [
+                "type",
+                "version",
+                "content"
+              ],
+              "additionalProperties": false,
+              "title": "createTaskRequest.fields.description",
+              "type": "object"
+            },
+            "issuetype": {
+              "properties": {
+                "name": {
+                  "title": "createTaskRequest.fields.issuetype.name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false,
+              "title": "createTaskRequest.fields.issuetype",
+              "type": "object"
+            },
+            "priority": {
+              "properties": {
+                "name": {
+                  "title": "createTaskRequest.fields.priority.name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false,
+              "title": "createTaskRequest.fields.priority",
+              "type": "object"
+            },
+            "labels": {
+              "items": {
+                "type": "string"
+              },
+              "title": "createTaskRequest.fields.labels",
+              "type": "array"
+            },
+            "assignee": {
+              "properties": {
+                "name": {
+                  "title": "createTaskRequest.fields.assignee.name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false,
+              "title": "createTaskRequest.fields.assignee",
+              "type": "object"
+            },
+            "reporter": {
+              "properties": {
+                "name": {
+                  "title": "createTaskRequest.fields.reporter.name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false,
+              "title": "createTaskRequest.fields.reporter",
+              "type": "object"
+            },
+            "duedate": {
+              "title": "createTaskRequest.fields.duedate",
+              "type": "string"
+            },
+            "customfield_10026": {
+              "title": "createTaskRequest.fields.customfield_10026",
+              "type": "string"
+            },
+            "customfield_10027": {
+              "title": "createTaskRequest.fields.customfield_10027",
+              "type": "string"
+            },
+            "customfield_10028": {
+              "title": "createTaskRequest.fields.customfield_10028",
+              "type": "string"
+            },
+            "status": {
+              "properties": {
+                "name": {
+                  "title": "createTaskRequest.fields.status.name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false,
+              "title": "createTaskRequest.fields.status",
+              "type": "object"
+            }
+          },
+          "required": [
+            "project",
+            "summary",
+            "description",
+            "issuetype",
+            "priority",
+            "labels",
+            "assignee",
+            "reporter",
+            "duedate",
+            "customfield_10026",
+            "customfield_10027",
+            "customfield_10028",
+            "status"
+          ],
+          "additionalProperties": false,
+          "title": "createTaskRequest.fields",
+          "type": "object"
+        },
+        "taskFor": {
+          "title": "createTaskRequest.taskFor",
+          "enum": [
+            "STUDIO | BUG_TRACK"
+          ],
+          "type": "string"
+        },
+        "project": {
+          "title": "createTaskRequest.project",
+          "type": "string"
+        },
+        "issue": {
+          "title": "createTaskRequest.issue",
+          "type": "string"
+        },
+        "dependencies": {
+          "items": {
+            "additionalProperties": false,
+            "type": "object"
+          },
+          "title": "createTaskRequest.dependencies",
+          "type": "array"
+        },
+        "application": {
+          "title": "createTaskRequest.application",
+          "type": "string"
+        },
+        "attachments": {
+          "items": {
+            "type": "string"
+          },
+          "title": "createTaskRequest.attachments",
+          "type": "array"
+        },
+        "links": {
+          "items": {
+            "type": "string"
+          },
+          "title": "createTaskRequest.links",
+          "type": "array"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "createTaskRequest.tags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "fields",
+        "taskFor",
+        "project",
+        "issue",
+        "dependencies",
+        "application",
+        "attachments",
+        "links",
+        "tags"
+      ],
+      "additionalProperties": false,
+      "title": "createTaskRequest",
+      "type": "object"
+    },
+    "createTasksRequest": {
+      "properties": {
+        "taskData": {
+          "items": {
+            "properties": {
+              "fields": {
+                "properties": {
+                  "project": {
+                    "properties": {
+                      "key": {
+                        "title": "fields.project.key",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "key"
+                    ],
+                    "additionalProperties": false,
+                    "title": "fields.project",
+                    "type": "object"
+                  },
+                  "summary": {
+                    "title": "fields.summary",
+                    "type": "string"
+                  },
+                  "description": {
+                    "properties": {
+                      "type": {
+                        "title": "fields.description.type",
+                        "type": "string"
+                      },
+                      "version": {
+                        "title": "fields.description.version",
+                        "type": "number"
+                      },
+                      "content": {
+                        "items": {
+                          "properties": {
+                            "type": {
+                              "title": "type",
+                              "type": "string"
+                            },
+                            "content": {
+                              "items": [
+                                {
+                                  "properties": {
+                                    "type": {
+                                      "title": "content.0.type",
+                                      "type": "string"
+                                    },
+                                    "text": {
+                                      "title": "content.0.text",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "type",
+                                    "text"
+                                  ],
+                                  "additionalProperties": false,
+                                  "title": "content.0",
+                                  "type": "object"
+                                }
+                              ],
+                              "additionalItems": false,
+                              "minItems": 1,
+                              "title": "content",
+                              "type": "array"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "content"
+                          ],
+                          "additionalProperties": false,
+                          "type": "object"
+                        },
+                        "title": "fields.description.content",
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "version",
+                      "content"
+                    ],
+                    "additionalProperties": false,
+                    "title": "fields.description",
+                    "type": "object"
+                  },
+                  "issuetype": {
+                    "properties": {
+                      "name": {
+                        "title": "fields.issuetype.name",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "additionalProperties": false,
+                    "title": "fields.issuetype",
+                    "type": "object"
+                  },
+                  "priority": {
+                    "properties": {
+                      "name": {
+                        "title": "fields.priority.name",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "additionalProperties": false,
+                    "title": "fields.priority",
+                    "type": "object"
+                  },
+                  "labels": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "title": "fields.labels",
+                    "type": "array"
+                  },
+                  "assignee": {
+                    "properties": {
+                      "name": {
+                        "title": "fields.assignee.name",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "additionalProperties": false,
+                    "title": "fields.assignee",
+                    "type": "object"
+                  },
+                  "reporter": {
+                    "properties": {
+                      "name": {
+                        "title": "fields.reporter.name",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "additionalProperties": false,
+                    "title": "fields.reporter",
+                    "type": "object"
+                  },
+                  "duedate": {
+                    "title": "fields.duedate",
+                    "type": "string"
+                  },
+                  "customfield_10026": {
+                    "title": "fields.customfield_10026",
+                    "type": "string"
+                  },
+                  "customfield_10027": {
+                    "title": "fields.customfield_10027",
+                    "type": "string"
+                  },
+                  "customfield_10028": {
+                    "title": "fields.customfield_10028",
+                    "type": "string"
+                  },
+                  "status": {
+                    "properties": {
+                      "name": {
+                        "title": "fields.status.name",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "additionalProperties": false,
+                    "title": "fields.status",
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "project",
+                  "summary",
+                  "description",
+                  "issuetype",
+                  "priority",
+                  "labels",
+                  "assignee",
+                  "reporter",
+                  "duedate",
+                  "customfield_10026",
+                  "customfield_10027",
+                  "customfield_10028",
+                  "status"
+                ],
+                "additionalProperties": false,
+                "title": "fields",
+                "type": "object"
+              },
+              "attachments": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "attachments",
+                "type": "array"
+              },
+              "links": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "links",
+                "type": "array"
+              },
+              "tags": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "tags",
+                "type": "array"
+              }
+            },
+            "required": [
+              "fields",
+              "attachments",
+              "links",
+              "tags"
+            ],
+            "additionalProperties": false,
+            "type": "object"
+          },
+          "title": "createTasksRequest.taskData",
+          "type": "array"
+        },
+        "project": {
+          "title": "createTasksRequest.project",
+          "type": "string"
+        },
+        "issue": {
+          "title": "createTasksRequest.issue",
+          "type": "string"
+        }
+      },
+      "required": [
+        "taskData",
+        "project",
+        "issue"
+      ],
+      "additionalProperties": false,
+      "title": "createTasksRequest",
+      "type": "object"
+    },
+    "createSubTaskRequest": {
+      "properties": {
+        "fields": {
+          "properties": {
+            "project": {
+              "properties": {
+                "key": {
+                  "title": "createSubTaskRequest.fields.project.key",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key"
+              ],
+              "additionalProperties": false,
+              "title": "createSubTaskRequest.fields.project",
+              "type": "object"
+            },
+            "parent": {
+              "properties": {
+                "key": {
+                  "title": "createSubTaskRequest.fields.parent.key",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key"
+              ],
+              "additionalProperties": false,
+              "title": "createSubTaskRequest.fields.parent",
+              "type": "object"
+            },
+            "summary": {
+              "title": "createSubTaskRequest.fields.summary",
+              "type": "string"
+            },
+            "description": {
+              "properties": {
+                "type": {
+                  "title": "createSubTaskRequest.fields.description.type",
+                  "type": "string"
+                },
+                "version": {
+                  "title": "createSubTaskRequest.fields.description.version",
+                  "type": "number"
+                },
+                "content": {
+                  "items": {
+                    "properties": {
+                      "type": {
+                        "title": "type",
+                        "type": "string"
+                      },
+                      "content": {
+                        "items": [
+                          {
+                            "properties": {
+                              "type": {
+                                "title": "content.0.type",
+                                "type": "string"
+                              },
+                              "text": {
+                                "title": "content.0.text",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "text"
+                            ],
+                            "additionalProperties": false,
+                            "title": "content.0",
+                            "type": "object"
+                          }
+                        ],
+                        "additionalItems": false,
+                        "minItems": 1,
+                        "title": "content",
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "content"
+                    ],
+                    "additionalProperties": false,
+                    "type": "object"
+                  },
+                  "title": "createSubTaskRequest.fields.description.content",
+                  "type": "array"
+                }
+              },
+              "required": [
+                "type",
+                "version",
+                "content"
+              ],
+              "additionalProperties": false,
+              "title": "createSubTaskRequest.fields.description",
+              "type": "object"
+            },
+            "issuetype": {
+              "properties": {
+                "name": {
+                  "title": "createSubTaskRequest.fields.issuetype.name",
+                  "enum": [
+                    "Sub-task"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false,
+              "title": "createSubTaskRequest.fields.issuetype",
+              "type": "object"
+            }
+          },
+          "required": [
+            "project",
+            "parent",
+            "summary",
+            "description",
+            "issuetype"
+          ],
+          "additionalProperties": false,
+          "title": "createSubTaskRequest.fields",
+          "type": "object"
+        },
+        "task": {
+          "title": "createSubTaskRequest.task",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fields",
+        "task"
+      ],
+      "additionalProperties": false,
+      "title": "createSubTaskRequest",
+      "type": "object"
+    },
+    "createDependencyReq": {
+      "properties": {
+        "dependencies": {
+          "items": {
+            "properties": {
+              "category": {
+                "$ref": "#/definitions/String",
+                "title": "category"
+              },
+              "name": {
+                "$ref": "#/definitions/String",
+                "title": "name"
+              },
+              "action": {
+                "$ref": "#/definitions/String",
+                "title": "action"
+              },
+              "owner": {
+                "$ref": "#/definitions/String",
+                "title": "owner"
+              },
+              "description": {
+                "$ref": "#/definitions/String",
+                "title": "description"
+              },
+              "attachments": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "attachments",
+                "type": "array"
+              },
+              "links": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "links",
+                "type": "array"
+              },
+              "tags": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "tags",
+                "type": "array"
+              }
+            },
+            "required": [
+              "category",
+              "name",
+              "action",
+              "owner",
+              "description",
+              "attachments",
+              "links",
+              "tags"
+            ],
+            "additionalProperties": false,
+            "type": "object"
+          },
+          "title": "createDependencyReq.dependencies",
+          "type": "array"
+        }
+      },
+      "required": [
+        "dependencies"
+      ],
+      "additionalProperties": false,
+      "title": "createDependencyReq",
+      "type": "object"
+    },
+    "createCommentRequest": {
+      "properties": {
+        "_id": {
+          "title": "createCommentRequest._id",
+          "type": "string"
+        },
+        "issueType": {
+          "title": "createCommentRequest.issueType",
+          "enum": [
+            "TASK | ISSUE"
+          ],
+          "type": "string"
+        },
+        "comment": {
+          "title": "createCommentRequest.comment",
+          "type": "string"
+        },
+        "attachmentUrl": {
+          "title": "createCommentRequest.attachmentUrl",
+          "type": "string"
+        }
+      },
+      "required": [
+        "_id",
+        "issueType",
+        "comment",
+        "attachmentUrl"
+      ],
+      "additionalProperties": false,
+      "title": "createCommentRequest",
+      "type": "object"
+    },
+    "createReleaseNoteRequest": {
+      "properties": {
+        "jiraIssue": {
+          "title": "createReleaseNoteRequest.jiraIssue",
+          "type": "string"
+        },
+        "data": {
+          "title": "createReleaseNoteRequest.data",
+          "type": "object"
+        },
+        "application": {
+          "title": "createReleaseNoteRequest.application",
+          "type": "string"
+        }
+      },
+      "required": [
+        "jiraIssue",
+        "data",
+        "application"
+      ],
+      "additionalProperties": false,
+      "title": "createReleaseNoteRequest",
+      "type": "object"
+    },
+    "getStatusAndLabelsReq": {
+      "properties": {
+        "keys": {
+          "items": {
+            "type": "string"
+          },
+          "title": "getStatusAndLabelsReq.keys",
+          "type": "array"
+        }
+      },
+      "required": [
+        "keys"
+      ],
+      "additionalProperties": false,
+      "title": "getStatusAndLabelsReq",
+      "type": "object"
+    },
+    "updateSelectiveDataForIssueReq": {
+      "properties": {
+        "tasks": {
+          "items": {
+            "properties": {
+              "id": {
+                "title": "id",
+                "type": "number"
+              },
+              "key": {
+                "title": "key",
+                "type": "string"
+              },
+              "self": {
+                "title": "self",
+                "type": "string"
+              },
+              "fields": {
+                "title": "fields",
+                "type": "object"
+              }
+            },
+            "required": [
+              "id",
+              "key",
+              "self",
+              "fields"
+            ],
+            "additionalProperties": false,
+            "type": "object"
+          },
+          "title": "updateSelectiveDataForIssueReq.tasks",
+          "type": "array"
+        },
+        "comments": {
+          "items": {
+            "properties": {
+              "self": {
+                "title": "self",
+                "type": "string"
+              },
+              "id": {
+                "title": "id",
+                "type": "string"
+              },
+              "author": {
+                "title": "author",
+                "type": "object"
+              },
+              "body": {
+                "title": "body",
+                "type": "object"
+              },
+              "updateAuthor": {
+                "title": "updateAuthor",
+                "type": "object"
+              },
+              "created": {
+                "title": "created",
+                "type": "string"
+              },
+              "updated": {
+                "title": "updated",
+                "type": "string"
+              },
+              "jsdPublic": {
+                "title": "jsdPublic",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "self",
+              "id",
+              "author",
+              "body",
+              "updateAuthor",
+              "created",
+              "updated",
+              "jsdPublic"
+            ],
+            "additionalProperties": false,
+            "type": "object"
+          },
+          "title": "updateSelectiveDataForIssueReq.comments",
+          "type": "array"
+        }
+      },
+      "required": [
+        "tasks",
+        "comments"
+      ],
+      "additionalProperties": false,
+      "title": "updateSelectiveDataForIssueReq",
+      "type": "object"
+    },
+    "createJiraProjectConfigReq": {
+      "properties": {
+        "key": {
+          "title": "createJiraProjectConfigReq.key",
+          "type": "string"
+        },
+        "name": {
+          "title": "createJiraProjectConfigReq.name",
+          "type": "string"
+        },
+        "projectId": {
+          "title": "createJiraProjectConfigReq.projectId",
+          "type": "string"
+        },
+        "allocatedUsers": {
+          "items": {
+            "type": "string"
+          },
+          "title": "createJiraProjectConfigReq.allocatedUsers",
+          "type": "array"
+        }
+      },
+      "required": [
+        "key",
+        "name",
+        "projectId",
+        "allocatedUsers"
+      ],
+      "additionalProperties": false,
+      "title": "createJiraProjectConfigReq",
+      "type": "object"
+    },
+    "jiraRequiredFieldsResponse": {
+      "properties": {
+        "requiredFields": {
+          "items": {
+            "properties": {
+              "fieldKey": {
+                "title": "fieldKey",
+                "type": "string"
+              },
+              "fieldName": {
+                "title": "fieldName",
+                "type": "string"
+              },
+              "dataType": {
+                "title": "dataType",
+                "type": "string"
+              }
+            },
+            "required": [
+              "fieldKey",
+              "fieldName",
+              "dataType"
+            ],
+            "additionalProperties": false,
+            "type": "object"
+          },
+          "title": "jiraRequiredFieldsResponse.requiredFields",
+          "type": "array"
+        }
+      },
+      "required": [
+        "requiredFields"
+      ],
+      "additionalProperties": false,
+      "title": "jiraRequiredFieldsResponse",
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "accesstoken": {
+      "type": "apiKey",
+      "name": "accesstoken",
+      "in": "header"
+    },
+    "x-api-key": {
+      "type": "apiKey",
+      "name": "x-api-key",
+      "in": "header"
+    },
+    "Content-Type": {
+      "type": "apiKey",
+      "name": "Content-Type",
+      "in": "header"
+    }
+  },
+  "basePath": "/jira-mgmt",
+  "host": "dev.api.apitestsuite.com",
+  "schemes": [
+    "https"
+  ]
+}

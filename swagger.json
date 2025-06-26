@@ -1,0 +1,577 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "api otpMgmt APIs",
+    "version": "1"
+  },
+  "paths": {
+    "/notification/count": {
+      "get": {
+        "summary": "getNotificationCount",
+        "description": "",
+        "operationId": "getNotificationCount.get.notification/count",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "type": "string",
+            "description": "Filter by page number",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "size",
+            "type": "string",
+            "description": "Filter by page size",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "module",
+            "type": "string",
+            "description": "Filter by module",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "type": "string",
+            "description": "Filter by status",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "type": "string",
+            "description": "Filter by type",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "unRead",
+            "type": "boolean",
+            "description": "Filter by unRead",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/getNotificationListResponse"
+            }
+          }
+        }
+      }
+    },
+    "/notifications": {
+      "get": {
+        "summary": "getNotifications",
+        "description": "",
+        "operationId": "getNotifications.get.notifications",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "type": "string",
+            "description": "Filter by page number",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "size",
+            "type": "string",
+            "description": "Filter by page size",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "module",
+            "type": "string",
+            "description": "Filter by module",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "type": "string",
+            "description": "Filter by status",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "type": "string",
+            "description": "Filter by type",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "category",
+            "type": "string",
+            "description": "Filter by category",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/getNotificationListResponse"
+            }
+          }
+        }
+      }
+    },
+    "/notification/{id}": {
+      "get": {
+        "summary": "getNotificationDetails",
+        "description": "",
+        "operationId": "getNotificationDetails.get.notification/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "withDetails",
+            "type": "boolean",
+            "description": "if true then getDetails",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/getNotificationResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "deleteNotification",
+        "description": "",
+        "operationId": "deleteNotification.delete.notification/{id}",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/getNotificationResponse"
+            }
+          }
+        }
+      }
+    },
+    "/notification": {
+      "post": {
+        "summary": "createNotification",
+        "description": "",
+        "operationId": "createNotification.post.notification",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Body required in the request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/createNotificationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/getNotificationResponse"
+            }
+          }
+        }
+      }
+    },
+    "/notification/{id}/seen": {
+      "get": {
+        "summary": "seenNotification",
+        "description": "",
+        "operationId": "seenNotification.get.notification/{id}/seen",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "accesstoken": [],
+            "x-api-key": [],
+            "Content-Type": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "isSeen",
+            "type": "boolean",
+            "description": "if true then seen and if false then unseen",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/getNotificationResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "getNotificationResponse": {
+      "properties": {
+        "_id": {
+          "title": "getNotificationResponse._id",
+          "type": "string"
+        },
+        "companyId": {
+          "title": "getNotificationResponse.companyId",
+          "type": "string"
+        },
+        "createdBy": {
+          "properties": {
+            "userId": {
+              "title": "getNotificationResponse.createdBy.userId",
+              "type": "string"
+            },
+            "fullName": {
+              "title": "getNotificationResponse.createdBy.fullName",
+              "type": "string"
+            },
+            "_id": {
+              "title": "getNotificationResponse.createdBy._id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "userId",
+            "fullName",
+            "_id"
+          ],
+          "additionalProperties": false,
+          "title": "getNotificationResponse.createdBy",
+          "type": "object"
+        },
+        "module": {
+          "title": "getNotificationResponse.module",
+          "enum": [
+            " API_NAVIGATOR | API_GOV | API_RULES | API_DATA_HUBS | API_APPLICATIONS | WORKFLOW | COMPANY_SETTINGS"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "title": "getNotificationResponse.type",
+          "enum": [
+            "MESSAGE | REDIRECT | APPROVAL"
+          ],
+          "type": "string"
+        },
+        "message": {
+          "title": "getNotificationResponse.message",
+          "type": "string"
+        },
+        "data": {
+          "title": "getNotificationResponse.data",
+          "type": "object"
+        },
+        "notifyTo": {
+          "items": {
+            "properties": {
+              "level": {
+                "title": "level",
+                "enum": [
+                  "USER | TEAM | COMPANY"
+                ],
+                "type": "string"
+              },
+              "user": {
+                "title": "user",
+                "type": "string"
+              },
+              "team": {
+                "title": "team",
+                "type": "string"
+              },
+              "company": {
+                "title": "company",
+                "type": "string"
+              }
+            },
+            "required": [
+              "level",
+              "user",
+              "team",
+              "company"
+            ],
+            "additionalProperties": false,
+            "type": "object"
+          },
+          "title": "getNotificationResponse.notifyTo",
+          "type": "array"
+        },
+        "expiryDate": {
+          "title": "getNotificationResponse.expiryDate",
+          "type": "string"
+        },
+        "__v": {
+          "title": "getNotificationResponse.__v",
+          "enum": [0],
+          "type": "number"
+        },
+        "createdAt": {
+          "title": "getNotificationResponse.createdAt",
+          "type": "string"
+        },
+        "updatedAt": {
+          "title": "getNotificationResponse.updatedAt",
+          "type": "string"
+        }
+      },
+      "required": [
+        "_id",
+        "companyId",
+        "createdBy",
+        "module",
+        "type",
+        "message",
+        "data",
+        "notifyTo",
+        "expiryDate",
+        "__v",
+        "createdAt",
+        "updatedAt"
+      ],
+      "additionalProperties": false,
+      "title": "getNotificationResponse",
+      "type": "object"
+    },
+    "getNotificationListResponse": {
+      "properties": {
+        "total": {
+          "title": "getNotificationListResponse.total",
+          "type": "number"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/getNotificationResponse"
+          },
+          "title": "getNotificationListResponse.items",
+          "type": "array"
+        }
+      },
+      "required": [
+        "total",
+        "items"
+      ],
+      "additionalProperties": false,
+      "title": "getNotificationListResponse",
+      "type": "object"
+    },
+    "createNotificationRequest": {
+      "properties": {
+        "module": {
+          "title": "createNotificationRequest.module",
+          "enum": [
+            " API_NAVIGATOR | API_GOV | API_RULES | API_DATA_HUBS | API_APPLICATIONS | WORKFLOW | COMPANY_SETTINGS | GLOBAL"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "title": "createNotificationRequest.type",
+          "enum": [
+            "MESSAGE | REDIRECT | APPROVAL"
+          ],
+          "type": "string"
+        },
+        "message": {
+          "title": "createNotificationRequest.message",
+          "type": "string"
+        },
+        "data": {
+          "title": "createNotificationRequest.data",
+          "type": "object"
+        },
+        "isCritical": {
+          "title": "createNotificationRequest.isCritical",
+          "type": "boolean"
+        },
+        "category": {
+          "title": "createNotificationRequest.category",
+          "enum": [
+            "NOTIFICATION | WARNING "
+          ],
+          "type": "string"
+        },
+        "severity": {
+          "title": "createNotificationRequest.severity",
+          "enum": [
+            "INFO | WARNING | ERROR | SUCCESS"
+          ],
+          "type": "string"
+        },
+        "notifyTo": {
+          "items": {
+            "properties": {
+              "level": {
+                "title": "level",
+                "enum": [
+                  "USER | TEAM | COMPANY"
+                ],
+                "type": "string"
+              },
+              "user": {
+                "title": "user",
+                "type": "string"
+              },
+              "team": {
+                "title": "team",
+                "type": "string"
+              },
+              "company": {
+                "title": "company",
+                "type": "string"
+              }
+            },
+            "required": [
+              "level",
+              "user",
+              "team",
+              "company"
+            ],
+            "additionalProperties": false,
+            "type": "object"
+          },
+          "title": "createNotificationRequest.notifyTo",
+          "type": "array"
+        }
+      },
+      "required": [
+        "module",
+        "type",
+        "message",
+        "data",
+        "isCritical",
+        "category",
+        "severity",
+        "notifyTo"
+      ],
+      "additionalProperties": false,
+      "title": "createNotificationRequest",
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "accesstoken": {
+      "type": "apiKey",
+      "name": "accesstoken",
+      "in": "header"
+    },
+    "x-api-key": {
+      "type": "apiKey",
+      "name": "x-api-key",
+      "in": "header"
+    },
+    "Content-Type": {
+      "type": "apiKey",
+      "name": "Content-Type",
+      "in": "header"
+    }
+  },
+  "basePath": "/otp-mgmt",
+  "host": "dev.api.apitestsuite.com",
+  "schemes": [
+    "https"
+  ]
+}
