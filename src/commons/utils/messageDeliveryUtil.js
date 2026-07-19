@@ -24,7 +24,7 @@ export const  sendPhonePin = async  (phonePinVal,phoneNumber) => {
         },
         'AWS.SNS.SMS.SenderID': {
             DataType: 'String',
-            StringValue: 'SNR'
+            StringValue: 'DrutoAITech'
         }
     }
 };
